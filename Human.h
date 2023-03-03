@@ -1,14 +1,15 @@
 #ifndef HUMAN_H
 #define HUMAN_H
+#include <string>
 #include "Player.h"
 
-class Human: public Player{
-  public:
-    std::string name;
-    char move;
-    Human(): name("Human"){}
-    Human(string s): name(s){}
-    char makeMove() = 0;
-    std::string getName() = 0;
+class Human : public Player {
+ public:
+  Human();
+  Human(std::string s);
+  std::string name;
+  char move;
+  char makeMove();
+  std::string getName();
 };
-#endif 
+#endif

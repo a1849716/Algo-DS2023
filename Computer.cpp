@@ -2,10 +2,12 @@
 #include <iostream>
 using namespace std;
 
-Computer::Computer(){};
+Computer::Computer(){
+  move = 'R';
+  name = "Computer";
+};
 
 char Computer::makeMove(){
-  move = 'R';
   return move;
 };
 
