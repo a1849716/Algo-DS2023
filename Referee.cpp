@@ -3,6 +3,7 @@
 #include "Computer.h"
 #include "Referee.h"
 #include <string>
+#include <iostream>
 using namespace std;
 
 Referee::Referee(){};
@@ -15,10 +16,10 @@ Player * Referee::refGame(Player * player1, Player * player2){
     return nullptr;
   }
   else if(p1move == 'S'){
-      winner = player2;
+    winner = player2;
   }
   else if (p1move == 'P'){
-      winner = player1;
+    winner = player1;
     }
   return winner;
 };

@@ -3,7 +3,9 @@
 #include <iostream>
 using namespace std;
 
-Human::Human(){};
+Human::Human(){
+  name = "Human";
+};
 
 Human::Human(string s){
   name = s;
