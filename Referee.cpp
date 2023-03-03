@@ -7,7 +7,7 @@ using namespace std;
 
 Referee::Referee(){};
 
-Player * refGame(Player * player1, Player * player2){
+Player * Referee::refGame(Player * player1, Player * player2){
   char p1move = player1->makeMove();
   Player * winner = player1;
   if (p1move == 'R'){
