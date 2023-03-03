@@ -8,6 +8,8 @@ class Referee{
     Referee();
     Player * refGame(Player * player1, Player * player2);
     // returns the reference to the winning player
+    char p1move;
+    Player * winner;
 };
 
 #endif

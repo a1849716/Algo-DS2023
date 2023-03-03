@@ -8,8 +8,9 @@ using namespace std;
 Referee::Referee(){};
 
 Player * Referee::refGame(Player * player1, Player * player2){
-  char p1move = player1->makeMove();
-  Player * winner = player1;
+
+  p1move = player1->makeMove();
+
   if (p1move == 'R'){
     return nullptr;
   }
