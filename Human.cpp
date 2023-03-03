@@ -2,11 +2,16 @@
 #include <iostream>
 using namespace std;
 
-Human::Human(){
-  Move = "";
+Human::Human(){};
+
+Human::Human(string s){};
+
+char Human::makeMove(){
+  cout << "Enter Move: ";
+  cin >> move;
+  return move;
 };
 
-string Human::get_Move(){
-  cout << "Enter move: ";
-  cin >> Move;
+string Human::getName(){
+  return name;
 };

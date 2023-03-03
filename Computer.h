@@ -1,11 +1,14 @@
 #ifndef COMPUTER_H
 #define COMPUTER_H
 #include <string>
-using namespace std;
+#include "Player.h"
 
-class Computer{
+class Computer: public Player{
   public:
-    Computer();
-    string Move;
+    std::string name;
+    char move;
+    Computer(): name("Computer"){}
+    char makeMove() = 0;
+    string getName() = 0;
 };
 #endif

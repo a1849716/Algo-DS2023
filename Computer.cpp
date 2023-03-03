@@ -1,8 +1,15 @@
 #include "Computer.h"
-#include <string>
+#include <iostream>
 using namespace std;
 
-Computer::Computer(){
-  Move = "R";
+Computer::Computer(){};
+
+char Computer::makeMove(){
+  move = 'R';
+  return move;
+};
+
+string Computer::getName(){
+  return name;
 };
 

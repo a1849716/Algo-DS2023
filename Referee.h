@@ -9,5 +9,4 @@ class Referee{
     // returns the reference to the winning player
 };
 
-
 #endif
