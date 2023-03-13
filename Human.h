@@ -8,7 +8,8 @@ class Human : public Player {
   Human();
   Human(std::string s);
   std::string name;
-  char move;
+  std::string madeMove;
+  Move* move;
   Move* makeMove();
   std::string getName();
 };

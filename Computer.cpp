@@ -1,14 +1,15 @@
 #include "Computer.h"
 #include <iostream>
 #include <string>
+#include"Rock.h"
 using namespace std;
 
 Computer::Computer(){
-  move = 'R';
+  move = new Rock;
   name = "Computer";
 };
 
-char Computer::makeMove(){
+Move* Computer::makeMove(){
   return move;
 };
 

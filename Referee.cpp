@@ -9,17 +9,16 @@ using namespace std;
 Referee::Referee(){};
 
 Player * Referee::refGame(Player * player1, Player * player2){
-
   p1move = player1->makeMove();
+  p2move = player2->makeMove();
 
-  if (p1move == 'R'){
-    return nullptr;
-  }
-  else if(p1move == 'S'){
-    winner = player2;
-  }
-  else if (p1move == 'P'){
-    winner = player1;
+  for (int i=0; i<(p1move->weaknessNum);i++){
+    if(p1move->getStrengths(i) == p2move->getName()){
+      winner = player1;
     }
+    else if(p1move->getWeaknesses(i)==p2move->getName()){
+      winner = player2;
+    }
+  }
   return winner;
 };

@@ -8,6 +8,6 @@ Move::Move(){
 
 string Move::getName(){return name;};
 
-string Move::getStrengths(){return strengths[0];};
+string Move::getStrengths(int i){return strengths[i];};
 
-string Move::getWeaknesses(){return weaknesses[0];};
+string Move::getWeaknesses(int i){return weaknesses[i];};
