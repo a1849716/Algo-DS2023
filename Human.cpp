@@ -22,14 +22,14 @@ Human::Human(string s){
 Move* Human::makeMove(){
   cout << "Enter move: ";
   cin >> madeMove;
-  if (madeMove == "Rock"){new Rock;}
-  else if(madeMove == "Paper"){new Paper;}
-  else if(madeMove == "Scissors"){new Scissors;}
-  else if(madeMove == "Ninja"){new Ninja;}
-  else if(madeMove == "Zombie"){new Zombie;}
-  else if(madeMove == "Robot"){new Robot;}
-  else if(madeMove == "Pirate"){new Pirate;}
-  else if(madeMove == "Monkey"){new Monkey;}
+  if (madeMove == "Rock"){move = new Rock; return move;}
+  else if(madeMove == "Paper"){move = new Paper; return move;}
+  else if(madeMove == "Scissors"){move = new Scissors; return move;}
+  else if(madeMove == "Ninja"){move = new Ninja; return move;}
+  else if(madeMove == "Zombie"){move = new Zombie; return move;}
+  else if(madeMove == "Robot"){move = new Robot; return move;}
+  else if(madeMove == "Pirate"){move = new Pirate; return move;}
+  else if(madeMove == "Monkey"){move = new Monkey; return move;}
   else{cout << "Incorrect input";}
   return nullptr;
 };
