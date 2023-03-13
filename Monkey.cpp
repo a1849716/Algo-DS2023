@@ -5,7 +5,9 @@ using namespace std;
 
 Monkey::Monkey(){
   name = "Monkey";
-  strengths[2]={"Ninja", "Robot"};
-  weaknesses[2]={"Pirate", "Zombie"};
+  strengths[0]="Ninja";
+  strengths[1]="Robot";;
+  weaknesses[0]="Pirate";
+  weaknesses[1]="Zombie";
   weaknessNum=2;
 }

@@ -5,7 +5,9 @@ using namespace std;
 
 Ninja::Ninja(){
   name = "Ninja";
-  strengths[2]={"Pirate", "Zombie"};
-  weaknesses[2]={"Robot", "Monkey"};
+  strengths[0]="Pirate";
+  strengths[1]="Zombie";;
+  weaknesses[0]="Robot";
+  weaknesses[1]="Monkey";
   weaknessNum=2;
 }
