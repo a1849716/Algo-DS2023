@@ -4,7 +4,7 @@
 using namespace std;
 
 Paper::Paper(){
-  name = "Rock";
+  name = "Paper";
   strengths[0]={"Rock"};
   weaknesses[0]={"Scissors"};
   weaknessNum=1;
