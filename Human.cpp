@@ -11,10 +11,10 @@ Human::Human(string s){
   name = s;
 };
 
-char Human::makeMove(){
+Move* Human::makeMove(){
   cout << "Enter Move: ";
   cin >> move;
-  return move;
+  return *move;
 };
 
 string Human::getName(){
