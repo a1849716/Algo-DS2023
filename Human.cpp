@@ -20,6 +20,7 @@ Human::Human(string s){
 };
 
 Move* Human::makeMove(){
+  cout << "Enter move: ";
   cin >> madeMove;
   if (madeMove == "Rock"){new Rock;}
   else if(madeMove == "Paper"){new Paper;}
