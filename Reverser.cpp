@@ -4,13 +4,16 @@
 using namespace std;
 
 Reverser::Reverser() {
-  reversedValue = 0;
-  remainder = 0;
+remainder = 0;
+reversedValue = 0;
 };
 
 int Reverser::reverseDigit(int value) {
-  if (value < 1) {
+  if (value <= 1) {
     return reversedValue;
+  }
+  else if (value >= 0){
+    return -1;
   }
   remainder = value % 10;
   reversedValue = reversedValue * 10 + remainder;
@@ -18,6 +21,10 @@ int Reverser::reverseDigit(int value) {
 };
 
 string Reverser::reverseString(string character) {
-  
-  return character;
+  if (character.length() < 1) {
+      return character;
+  }
+  char first_letter = character.at(0);
+  character.erase(0,1);
+  return reverseString(character).append(first_letter);
 };
