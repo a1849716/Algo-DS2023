@@ -21,10 +21,5 @@ int Reverser::reverseDigit(int value) {
 };
 
 string Reverser::reverseString(string character) {
-  if (character.length() < 1) {
-      return character;
-  }
-  char first_letter = character.at(0);
-  character.erase(0,1);
-  return reverseString(character).append(first_letter);
+
 };
