@@ -10,12 +10,11 @@ Reverser::Reverser() {
 };
 
 int Reverser::reverseDigit(int value) {
-  // int valueLength = to_string(value).length();
+  remainder = value % 10;
+  reversedValue = reversedValue * 10 + remainder;
   if (value < 10) {
     return value;
   } else {
-    remainder = value % 10;
-    reversedValue = reversedValue * 10 + remainder;
     return reverseDigit(value / 10);
   }
 };
