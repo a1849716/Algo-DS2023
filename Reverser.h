@@ -2,10 +2,13 @@
 #define REVERSER_H
 #include <string>
 
-class Reverser{
-  public:
-    int reverseDigit(int value);
-    std::string reverseString(std::string characters);
+class Reverser {
+ public:
+  Reverser();
+  int remainder;
+  int reversedValue;
+  int reverseDigit(int value);
+  std::string reverseString(std::string characters);
 };
 
 #endif
