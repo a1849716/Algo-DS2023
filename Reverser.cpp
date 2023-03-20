@@ -12,6 +12,9 @@ int Reverser::reverseDigit(int value) {
   if (value <= 0) {
     return reversedValue;
   }
+  if (value < 0){
+    return -1;
+  }
   remainder = value % 10;
   reversedValue = reversedValue * 10 + remainder;
   return reverseDigit(value / 10);
