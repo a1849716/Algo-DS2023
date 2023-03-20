@@ -5,5 +5,5 @@ using namespace std;
 
 int main() {
   Reverser p;
-  cout << p.reverseDigit(1234) << "\n";
+  cout << p.reverseDigit(1234567890) << "\n";
 }
