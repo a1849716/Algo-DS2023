@@ -9,7 +9,7 @@ reversedValue = 0;
 };
 
 int Reverser::reverseDigit(int value) {
-  if (value <= 1) {
+  if (value <= 0) {
     return reversedValue;
   }
   remainder = value % 10;
