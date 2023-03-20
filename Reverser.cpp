@@ -19,4 +19,10 @@ int Reverser::reverseDigit(int value) {
   }
 };
 
-string Reverser::reverseString(string character) { return character; };
+string Reverser::reverseString(string character) {
+  int strLen = character.length();
+  if (character.length() == 1) {
+    return character;
+  }
+  return reverseString(character.substr(1, strLen)) + character.at(0);
+};
