@@ -9,8 +9,8 @@ reversedValue = 0;
 };
 
 int Reverser::reverseDigit(int value) {
-  if (value <= 0) {
-    return reversedValue;
+  if (value <= 9) {
+    return value;
   }
   if (value < 0){
     return -1;
