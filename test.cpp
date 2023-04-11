@@ -31,43 +31,60 @@ vector<int> bubbleSort(vector<int> list) {
 }
 
 //QuickSort
-vector<int> quickSort(vector<int> list, int start, int end) {
-  int pivot_index = 0;
-  int pivot_value;
-  int length = list.size() - 1;
-  if (list.size() < 3) {
-    pivot_value = list.at(list.size() - 1);
+vector<int> quickSort(vector<int> list) {
+  //find the length
+  int length = list.size();
+  //create base case
+  if (length <= 1){
+    return list;
+  }
+
+  //find the pivot
+  int pivot;
+  if (length < 3) {
+    pivot = list.at(length - 1);
   } else {
-    pivot_value = list.at(2);
+    pivot = list.at(2);
   }
 
-  swap(pivot_value, list.at(length));
-
-  int i = 0;
-  int j = length;
-  while (i < j){
-    for (int j = length; j <= i+1; j--) {
-      if (list.at(i) > pivot_value && list.at(j) <= pivot_value) {
-        swap(list.at(i), list.at(j));
-      }
-      if (j > i) {
-        pivot_index = j;
-      }
-    }
-    i++;
-  }
-  swap(list.at(pivot_index), list.at(length));
-
+  //create three empty vectors
   vector<int> lessThan;
-  vector<int> moreThan;
+  vector<int> greaterThan;
+  vector<int> sameNum;
 
+  //for loops to seperate the variables into different vectors
+  for (int i = 0; i < length; i++) {
+    int currNum = list.at(i);
+    if (currNum < pivot) {
+      lessThan.push_back(currNum);
+    } else if (currNum > pivot) {
+      greaterThan.push_back(currNum);
+    } else if (currNum == pivot) {
+      sameNum.push_back(currNum);
+    }
+  }
+
+  //recursively call quickSort for the seperate vectors
+  lessThan = quickSort(lessThan);
+  greaterThan = quickSort(greaterThan);
+
+  //create a vector called final
+  vector<int> final;
+  //add lessThan variables to "final"
+  final = lessThan;
+  //add the repeating numbers
+  for (int j = 0; j < sameNum.size(); j++){
+    final.push_back(pivot);
+  }
+  //add the greaterThan
+  for (int k = 0; k < greaterThan.size(); k++){
+    final.push_back(greaterThan.at(k));
+  }
   
-
-}
-
+  return final;
+};
 
 int main() {
-  vector<int> lmaoxd = {3, 2, 4, 1, 6, 5, 8};
-  vector<int> new_lmaoxd = quickSort(lmaoxd);
-  print (new_lmaoxd);
+  vector<int> lmaoxd = {3, 2, 1, 1, 6, 5, 8};
+  print (quickSort(lmaoxd));
 }
