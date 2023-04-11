@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void print(std::vector<int> const &a) {
+void print(std::vector<int> a) {
   std::cout << "The vector elements are: ";
 
   for (int i = 0; i < a.size(); i++) std::cout << a.at(i) << ' ';
@@ -11,9 +11,9 @@ void print(std::vector<int> const &a) {
   cout << "\n";
 }
 
-vector<int> sort(vector<int> &list) {
+vector<int> sort(vector<int> list) {
   // interate "length" amount of times
-  for (int i = list.size()-1; i > 0; i--) {
+  for (int i = list.size() - 1; i > 0; i--) {
     for (int j = 0; j < i; j++) {
       // setting up a temporary number holder to be the number after
       int temp = list.at(j + 1);

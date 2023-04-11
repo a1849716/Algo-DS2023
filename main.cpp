@@ -15,7 +15,7 @@ void print(std::vector<int> const &a) {
 
 int main() {
   // make the vector
-  int myints[] = {3, 2, 4, 1, 6, 5, 8};
+  int myints[] = {0,3,5,4,-5,100,7777,2014};
   vector<int> fifth(myints, myints + sizeof(myints) / sizeof(int));
 
   BubbleSort bubble;
