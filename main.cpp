@@ -13,7 +13,7 @@ int main() {
   // make the vector
   vector<int> array;
   int input;
-  int length = -1;
+  int length = 0;
   while (cin >> input){
     array.push_back(input);
     length++;
