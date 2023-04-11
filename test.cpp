@@ -84,7 +84,27 @@ vector<int> quickSort(vector<int> list) {
   return final;
 };
 
+int binarySearch(vector<int> list, int num, int start, int end){
+  if ( start > end){
+    return 0;
+  }
+  
+  int middle = (start+end)/2;
+  cout <<"\nmiddle of the list: \n"<<list.at(middle);
+  if (list.at(middle) == num){
+    return middle;
+  }
+  else if(list.at(middle) < num){
+    return binarySearch(list,1, middle+1, end);
+  }
+  else{
+    return binarySearch(list, 1, start, middle-1);
+  }
+}
+
+
 int main() {
   vector<int> lmaoxd = {3, 2, 1, 1, 6, 5, 8};
-  print (quickSort(lmaoxd));
+  vector<int> newArray = quickSort(lmaoxd);
+  cout << binarySearch(newArray, 2, 0, 6);
 }
