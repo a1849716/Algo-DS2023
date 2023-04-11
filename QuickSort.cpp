@@ -39,13 +39,12 @@ vector<int> QuickSort::sort(vector<int> list) {
   lessThan = sort(lessThan);
   greaterThan = sort(greaterThan);
 
-  // create a vector called final
   vector<int> final;
   // add lessThan variables to "final"
   final = lessThan;
   // add the repeating numbers
   for (int j = 0; j < sameNum.size(); j++) {
-    final.push_back(pivot);
+    final.push_back(sameNum.at(j));
   }
   // add the greaterThan
   for (int k = 0; k < greaterThan.size(); k++) {

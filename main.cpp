@@ -8,29 +8,32 @@
 
 using namespace std;
 
-
 int main() {
   // make the vector
   vector<int> array;
   int input;
-  int length = 0;
-  while (cin >> input){
+  while (cin >> input) {
     array.push_back(input);
-    length++;
   }
+
+  int length = array.size();
 
   QuickSort quickSort;
   RecursiveBinarySearch rbs;
+
   vector<int> sortedArray = quickSort.sort(array);
-  
-  if(rbs.search(sortedArray, 1) == 1){
-  cout << "true" <<" ";
+
+  if (rbs.search(sortedArray, 1) == 1) {
+    cout << "true"
+         << " ";
+  } else {
+    cout << "false"
+         << " ";
   }
-  else{
-    cout << "false" <<" ";
-  }
-  for (int i = 0; i < length; i++){
-    cout << sortedArray.at(i)<<" ";
+  int i = 0;
+  while (i < length) {
+    cout << sortedArray.at(i) << " ";
+    i++;
   }
 
   return 0;
