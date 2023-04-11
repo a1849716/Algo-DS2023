@@ -1,10 +1,8 @@
 #include "BubbleSort.h"
 
-#include <iostream>
-#include <vector>
 using namespace std;
 
-vector<int> Sort::sort(vector<int> &list) {
+vector<int> Sort::sort(vector<int> list) {
   // get the length of vector;
   int length = list.size();
   // interate "length" amount of times

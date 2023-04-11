@@ -13,8 +13,8 @@ void print(std::vector<int> a) {
 
 vector<int> sort(vector<int> list) {
   // interate "length" amount of times
-  for (int i = list.size() - 1; i > 0; i--) {
-    for (int j = 0; j < i; j++) {
+  for (int i = 0; i < list.size()-1; i++) {
+    for (int j = 0; j < list.size()-i-1; j++) {
       // setting up a temporary number holder to be the number after
       int temp = list.at(j + 1);
       // if the curr_number is larger than the number after
@@ -30,9 +30,7 @@ vector<int> sort(vector<int> list) {
 }
 
 int main() {
-  int myints[] = {3, 2, 4, 1, 6, 5, 8};
-  vector<int> fifth(myints, myints + sizeof(myints) / sizeof(int));
-
-  sort(fifth);
-  print(fifth);
+  vector<int> lmaoxd = {3, 2, 4, 1, 6, 5, 8};
+  vector<int> new_lmaoxd = sort(lmaoxd);
+  print(new_lmaoxd);
 }

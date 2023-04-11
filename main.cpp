@@ -3,6 +3,7 @@
 
 #include "BubbleSort.h"
 #include "Sort.h"
+
 using namespace std;
 
 void print(std::vector<int> const &a) {
@@ -15,12 +16,11 @@ void print(std::vector<int> const &a) {
 
 int main() {
   // make the vector
-  int myints[] = {0,3,5,4,-5,100,7777,2014};
-  vector<int> fifth(myints, myints + sizeof(myints) / sizeof(int));
+  vector<int> lmaoxd = {0, 3, 5, 4, -5, 100, 7777, 2014};
 
   BubbleSort bubble;
-  bubble.sort(fifth);
-  print(fifth);
+  bubble.sort(lmaoxd);
+  print(lmaoxd);
 
   return 0;
 }
