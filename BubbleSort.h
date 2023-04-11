@@ -3,6 +3,8 @@
 
 #include "Sort.h"
 
-class BubbleSort : public Sort {};
+class BubbleSort : public Sort {
+  
+};
 
 #endif

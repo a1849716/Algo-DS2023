@@ -11,7 +11,8 @@ void print(std::vector<int> a) {
   cout << "\n";
 }
 
-vector<int> sort(vector<int> list) {
+//Bubble sort
+vector<int> bubbleSort(vector<int> list) {
   // interate "length" amount of times
   for (int i = 0; i < list.size()-1; i++) {
     for (int j = 0; j < list.size()-i-1; j++) {
@@ -29,8 +30,44 @@ vector<int> sort(vector<int> list) {
   return list;
 }
 
+//QuickSort
+vector<int> quickSort(vector<int> list, int start, int end) {
+  int pivot_index = 0;
+  int pivot_value;
+  int length = list.size() - 1;
+  if (list.size() < 3) {
+    pivot_value = list.at(list.size() - 1);
+  } else {
+    pivot_value = list.at(2);
+  }
+
+  swap(pivot_value, list.at(length));
+
+  int i = 0;
+  int j = length;
+  while (i < j){
+    for (int j = length; j <= i+1; j--) {
+      if (list.at(i) > pivot_value && list.at(j) <= pivot_value) {
+        swap(list.at(i), list.at(j));
+      }
+      if (j > i) {
+        pivot_index = j;
+      }
+    }
+    i++;
+  }
+  swap(list.at(pivot_index), list.at(length));
+
+  vector<int> lessThan;
+  vector<int> moreThan;
+
+  
+
+}
+
+
 int main() {
   vector<int> lmaoxd = {3, 2, 4, 1, 6, 5, 8};
-  vector<int> new_lmaoxd = sort(lmaoxd);
-  print(new_lmaoxd);
+  vector<int> new_lmaoxd = quickSort(lmaoxd);
+  print (new_lmaoxd);
 }
