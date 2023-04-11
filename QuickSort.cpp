@@ -2,7 +2,7 @@
 
 using namespace std;
 
-vector<int> Sort::sort(vector<int> list) {
+vector<int> QuickSort::sort(vector<int> list) {
   // find the length
   int length = list.size();
   // create base case

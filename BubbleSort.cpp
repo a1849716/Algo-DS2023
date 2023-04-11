@@ -2,7 +2,7 @@
 
 using namespace std;
 
-vector<int> Sort::sort(vector<int> list) {
+vector<int> BubbleSort::sort(vector<int> list) {
   // get the length of vector;
   int length = list.size();
   // interate "length" amount of times
