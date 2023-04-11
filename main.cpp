@@ -22,11 +22,15 @@ int main() {
   QuickSort quickSort;
   RecursiveBinarySearch rbs;
   vector<int> sortedArray = quickSort.sort(array);
-
-  cout << rbs.search(sortedArray, 1)<<" ";
+  if(rbs.search(sortedArray, 1) == 1){
+  cout << "true" <<" ";
+  }
+  else{
+    cout << "false" <<" ";
+  }
   for (int i = 0; i < length; i++){
     cout << sortedArray.at(i)<<" ";
   }
-  
+
   return 0;
 }
