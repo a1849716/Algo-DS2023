@@ -8,7 +8,7 @@ int RecursiveBinarySearch::binarySearch(vector<int> list, int num, int start, in
   }
   
   int middle = (start+end)/2;
-  
+
   if (list.at(middle) == num){
     return middle;
   }
@@ -20,7 +20,8 @@ int RecursiveBinarySearch::binarySearch(vector<int> list, int num, int start, in
   }
 }
 
-bool RecursiveBinarySearch::search(std::vector<int> list, int){
+bool RecursiveBinarySearch::search(std::vector<int>, int){
+  
   int index = binarySearch(list, 1, 0, list.size());
   bool status = false;
   if (index == 0){
