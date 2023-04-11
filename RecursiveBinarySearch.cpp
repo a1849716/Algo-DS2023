@@ -21,7 +21,7 @@ int RecursiveBinarySearch::binarySearch(vector<int> list, int num, int start, in
 }
 
 bool RecursiveBinarySearch::search(std::vector<int> list, int target){
-  int index = binarySearch(list, 1, 0, list.size());
+  int index = binarySearch(list, 1, 0, list.size()-1);
   bool status = false;
   if (index == 0){
     status = false;

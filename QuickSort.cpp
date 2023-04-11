@@ -2,7 +2,7 @@
 
 using namespace std;
 
-vector<int> QuickSort::sort(vector<int> list) {
+vector<int> Sort::sort(vector<int> list) {
   // find the length
   int length = list.size();
   // create base case
@@ -13,7 +13,7 @@ vector<int> QuickSort::sort(vector<int> list) {
   // find the pivot
   int pivot;
   if (length < 3) {
-    pivot = list.at(length - 1);
+    pivot = list.at(length-1);
   } else {
     pivot = list.at(2);
   }

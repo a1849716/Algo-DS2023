@@ -4,18 +4,16 @@
 using namespace std;
 
 void print(std::vector<int> a) {
-  std::cout << "The vector elements are: ";
-
   for (int i = 0; i < a.size(); i++) std::cout << a.at(i) << ' ';
 
   cout << "\n";
 }
 
-//Bubble sort
+// Bubble sort
 vector<int> bubbleSort(vector<int> list) {
   // interate "length" amount of times
-  for (int i = 0; i < list.size()-1; i++) {
-    for (int j = 0; j < list.size()-i-1; j++) {
+  for (int i = 0; i < list.size() - 1; i++) {
+    for (int j = 0; j < list.size() - i - 1; j++) {
       // setting up a temporary number holder to be the number after
       int temp = list.at(j + 1);
       // if the curr_number is larger than the number after
@@ -30,16 +28,16 @@ vector<int> bubbleSort(vector<int> list) {
   return list;
 }
 
-//QuickSort
+// QuickSort
 vector<int> quickSort(vector<int> list) {
-  //find the length
+  // find the length
   int length = list.size();
-  //create base case
-  if (length <= 1){
+  // create base case
+  if (length <= 1) {
     return list;
   }
 
-  //find the pivot
+  // find the pivot
   int pivot;
   if (length < 3) {
     pivot = list.at(length - 1);
@@ -47,12 +45,12 @@ vector<int> quickSort(vector<int> list) {
     pivot = list.at(2);
   }
 
-  //create three empty vectors
+  // create three empty vectors
   vector<int> lessThan;
   vector<int> greaterThan;
   vector<int> sameNum;
 
-  //for loops to seperate the variables into different vectors
+  // for loops to seperate the variables into different vectors
   for (int i = 0; i < length; i++) {
     int currNum = list.at(i);
     if (currNum < pivot) {
@@ -64,47 +62,49 @@ vector<int> quickSort(vector<int> list) {
     }
   }
 
-  //recursively call quickSort for the seperate vectors
+  // recursively call quickSort for the seperate vectors
   lessThan = quickSort(lessThan);
   greaterThan = quickSort(greaterThan);
 
-  //create a vector called final
+  // create a vector called final
   vector<int> final;
-  //add lessThan variables to "final"
+  // add lessThan variables to "final"
   final = lessThan;
-  //add the repeating numbers
-  for (int j = 0; j < sameNum.size(); j++){
+  // add the repeating numbers
+  for (int j = 0; j < sameNum.size(); j++) {
     final.push_back(pivot);
   }
-  //add the greaterThan
-  for (int k = 0; k < greaterThan.size(); k++){
+  // add the greaterThan
+  for (int k = 0; k < greaterThan.size(); k++) {
     final.push_back(greaterThan.at(k));
   }
-  
+
   return final;
 };
 
-int binarySearch(vector<int> list, int num, int start, int end){
-  if ( start > end){
+int binarySearch(vector<int> list, int num, int start, int end) {
+  if (start > end) {
     return 0;
   }
-  
-  int middle = (start+end)/2;
-  cout <<"\nmiddle of the list: \n"<<list.at(middle);
-  if (list.at(middle) == num){
+
+  int middle = (start + end) / 2;
+  if (list.at(middle) == num) {
     return middle;
-  }
-  else if(list.at(middle) < num){
-    return binarySearch(list,1, middle+1, end);
-  }
-  else{
-    return binarySearch(list, 1, start, middle-1);
+  } else if (list.at(middle) < num) {
+    return binarySearch(list, 1, middle + 1, end);
+  } else {
+    return binarySearch(list, 1, start, middle - 1);
   }
 }
 
-
 int main() {
-  vector<int> lmaoxd = {3, 2, 1, 1, 6, 5, 8};
+  vector<int> lmaoxd = {-5, -8, -4, -2, -1};
   vector<int> newArray = quickSort(lmaoxd);
-  cout << binarySearch(newArray, 2, 0, 6);
+  if (binarySearch(newArray, 1, 0, 4) == 1){
+  cout << "true" <<" ";
+  }
+  else{
+    cout << "false" << " ";
+  }
+  print(newArray);
 }
