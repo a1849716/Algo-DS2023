@@ -1,14 +1,19 @@
-#include "BubbleSort.h"
-
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
-vector<int> Sort::sort(vector<int> &list) {
-  // get the length of vector;
-  int length = list.size();
+void print(std::vector<int> const &a) {
+  std::cout << "The vector elements are: ";
+
+  for (int i = 0; i < a.size(); i++) std::cout << a.at(i) << ' ';
+
+  cout << "\n";
+}
+
+vector<int> sort(vector<int> &list) {
   // interate "length" amount of times
-  for (int i = length - 1; i > 0; i--) {
+  for (int i = list.size()-1; i > 0; i--) {
     for (int j = 0; j < i; j++) {
       // setting up a temporary number holder to be the number after
       int temp = list.at(j + 1);
@@ -22,4 +27,12 @@ vector<int> Sort::sort(vector<int> &list) {
     }
   }
   return list;
+}
+
+int main() {
+  int myints[] = {3, 2, 4, 1, 6, 5, 8};
+  vector<int> fifth(myints, myints + sizeof(myints) / sizeof(int));
+
+  sort(fifth);
+  print(fifth);
 }

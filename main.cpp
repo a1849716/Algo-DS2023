@@ -1,0 +1,26 @@
+#include <iostream>
+#include <vector>
+
+#include "BubbleSort.h"
+#include "Sort.h"
+using namespace std;
+
+void print(std::vector<int> const &a) {
+  std::cout << "The vector elements are: ";
+
+  for (int i = 0; i < a.size(); i++) std::cout << a.at(i) << ' ';
+
+  cout << "\n";
+}
+
+int main() {
+  // make the vector
+  int myints[] = {3, 2, 4, 1, 6, 5, 8};
+  vector<int> fifth(myints, myints + sizeof(myints) / sizeof(int));
+
+  BubbleSort bubble;
+  bubble.sort(fifth);
+  print(fifth);
+
+  return 0;
+}
