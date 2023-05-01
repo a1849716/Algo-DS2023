@@ -2,9 +2,10 @@
 #define LINKEDLIST_H
 #include "Node.h"
 
-class LinkedList {
+class LinkedList : private Node {
  private:
   Node* head;
+
  public:
   LinkedList();
   LinkedList(int* array, int len);
