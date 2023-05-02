@@ -48,7 +48,8 @@ void LinkedList::insertPosition(int pos, int newNum) {
     head = new_node;
   } else {
     // if insert in the middle
-    Node* prev_node = traverse(pos - 1);
+    Node* prev_node = head;
+    prev_node = traverse(pos - 1);
     new_node->link = prev_node->link;
     prev_node->link = new_node;
   }
