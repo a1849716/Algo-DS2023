@@ -1,4 +1,3 @@
-
 #include "LinkedList.h"
 
 #include <iostream>
@@ -11,20 +10,27 @@ using namespace std;
 LinkedList::LinkedList() { head = nullptr; };
 
 LinkedList::~LinkedList() {
-  while (head != nullptr) {
-    deletePosition(1);
+  Node* current = head;
+  while (current != nullptr) {
+    Node* temp = current;
+    current = current->link;
+    delete temp;
   }
+  head = nullptr;
 };
 
 Node* LinkedList::traverse(int index) {
   int position = 1;
-  Node* curr_node = head;
-
-  while (curr_node != nullptr && position < index) {
-    curr_node = curr_node->link;
+  Node* currNode = head;
+  while (currNode != nullptr && position < index) {
+    currNode = currNode->link;
     position++;
   }
-  return curr_node;
+  if (position == index) {
+    return currNode;
+  } else {
+    return nullptr;
+  }
 }
 
 LinkedList::LinkedList(int* array, int len) {
@@ -35,29 +41,32 @@ LinkedList::LinkedList(int* array, int len) {
 
 void LinkedList::insertPosition(int pos, int newNum) {
   // if insert at start
-  if (pos <= 1) {
-    head = new Node(newNum, head);
+  Node* new_node = new Node(newNum, nullptr);
+  if (pos <= 1 || head == nullptr) {
+    new_node->link = head;
+    head = new_node;
+  } else {
+    // if insert in the middle
+    Node* prev_node = traverse(pos - 1);
+    new_node->link = prev_node->link;
+    prev_node->link = new_node;
   }
-  // if insert in the middle
-  Node* prev_node = traverse(pos - 1);
-  // if insert is out of bounds
-  if (prev_node == nullptr) {
-    return;
-  }
-  Node* new_node = new Node(newNum, prev_node->link);
-  prev_node->link = new_node;
 };
 
 bool LinkedList::deletePosition(int pos) {
   Node* pos_node = traverse(pos);
-  if (pos_node == nullptr) {
+  if (pos_node == nullptr || pos < 1) {
     return false;
+  } else if (pos == 1) {
+    Node* temp = head;
+    head = head->link;
+    delete temp;
   } else {
-    Node* prev_node = traverse(pos-1);
-    Node* after_node = traverse(pos+1);
-    if (after_node == nullptr){
-      delete pos_node;
-    } else{
+    Node* prev_node = traverse(pos - 1);
+    Node* after_node = traverse(pos + 1);
+    if (pos_node->link == nullptr) {
+      return false;
+    } else {
       prev_node->link = after_node;
       delete pos_node;
     }
@@ -96,7 +105,7 @@ void LinkedList::printList() {
   Node* curr_node = head;
   cout << '[';
   while (curr_node != nullptr) {
-    cout << curr_node->data <<" "<<endl;
+    cout << curr_node->data << " ";
     curr_node = curr_node->link;
   }
   cout << ']';
