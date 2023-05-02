@@ -105,8 +105,11 @@ void LinkedList::printList() {
   Node* curr_node = head;
   cout << '[';
   while (curr_node != nullptr) {
-    cout << curr_node->data << " ";
+    cout << curr_node->data;
     curr_node = curr_node->link;
+    if (curr_node!=nullptr){
+      cout << " ";
+    }
   }
-  cout << ']';
+  cout << ']'<<endl;
 };
