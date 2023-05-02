@@ -1,16 +1,31 @@
 #include "LinkedList.h"
 
-LinkedList::LinkedList() { head = nullptr; };
+#include <iostream>
 
-LinkedList::LinkedList(int* array, int len) {
-  for (int i = 1; i <= len; i++) {
-    insertPosition(i, array[i - 1]);
-  }
-};
+using namespace std;
+
+LinkedList::LinkedList() { head = nullptr; };
 
 LinkedList::~LinkedList() {
   while (head != nullptr) {
     deletePosition(1);
+  }
+};
+
+Node* LinkedList::traverse(int index) {
+  int position = 0;
+  Node* curr_node = head;
+
+  while (curr_node != nullptr && position < index) {
+    curr_node = curr_node->link;
+    position++;
+  }
+  return curr_node;
+}
+
+LinkedList::LinkedList(int* array, int len) {
+  for (int i = 1; i <= len; i++) {
+    insertPosition(i, array[i - 1]);
   }
 };
 
@@ -19,16 +34,21 @@ void LinkedList::insertPosition(int pos, int newNum) {
   if (pos <= 1) {
     head = new Node(newNum, head);
   }
-  // insert at pos
-  Node* prev_node = get(pos - 1);
-  Node* new_node = new Node(prev_node->next, newNUm);
-  prev_node->next = new_node;
+  // if insert in the middle
+  Node* prev_node = traverse(pos - 1);
+  // if insert is out of bounds
+  if (prev_node == nullptr) {
+    return;
+  }
+  Node* new_node = new Node(newNum, prev_node->link);
+  prev_node->link = new_node;
 };
 
 bool LinkedList::deletePosition(int pos) {
   Node* temp = head;
   head = head->link;
   delete temp;
+  return 1;
 };
 
 int LinkedList::get(int pos) {
@@ -42,19 +62,22 @@ int LinkedList::get(int pos) {
 };
 
 int LinkedList::search(int target) {
+  Node* curr_node = head;
+  int index = 1;
   while (curr_node != nullptr) {
-    Node* curr_node = get(pos);
     if (curr_node->data == target) {
-      return curr_node;
+      return index;
     }
+    index++;
+    curr_node = curr_node->link;
   }
 };
 
 void LinkedList::printList() {
-  Node* currNode = head;
-  while (currNode != nullptr) {
-    std::cout << currNode->data << std::endl;
-    currNode = currNode->link;
+  Node* curr_node = head;
+  while (curr_node != nullptr) {
+    cout << curr_node->data << endl;
+    curr_node = curr_node->link;
   }
-  std::cout << std::endl;
+  cout << endl;
 };
