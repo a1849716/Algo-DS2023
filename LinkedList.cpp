@@ -97,5 +97,5 @@ void LinkedList::printList() {
     curr_node = curr_node->link;
     cout << " ";
   }
-  cout << ']'<<endl;
+  cout << ']';
 };
