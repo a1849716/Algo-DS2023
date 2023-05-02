@@ -1,6 +1,7 @@
 #include "LinkedList.h"
 
 #include <iostream>
+#include <limits>
 
 #include "Node.h"
 
@@ -60,8 +61,8 @@ bool LinkedList::deletePosition(int pos) {
 
 int LinkedList::get(int pos) {
   Node* pos_node = traverse(pos);
-  if (pos_node == nullptr){
-  return numeric_limits < int >::max();
+  if (pos_node == nullptr) {
+    return numeric_limits<int>::max();
   };
   int position = 1;
   Node* currNode = head;
