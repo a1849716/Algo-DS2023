@@ -17,7 +17,7 @@ LinkedList::~LinkedList() {
 };
 
 Node* LinkedList::traverse(int index) {
-  int position = 0;
+  int position = 1;
   Node* curr_node = head;
 
   while (curr_node != nullptr && position < index) {
