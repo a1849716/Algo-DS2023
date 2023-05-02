@@ -1,3 +1,4 @@
+
 #include "LinkedList.h"
 
 #include <iostream>
@@ -64,15 +65,16 @@ int LinkedList::get(int pos) {
   if (pos_node == nullptr) {
     return numeric_limits<int>::max();
   };
-  int position = 0;
+  int position = 1;
   Node* currNode = head;
   while (currNode != nullptr && position < pos) {
     currNode = currNode->link;
     position++;
+    if (position == pos) {
+      return currNode->data;
+    }
   }
-  return currNode->data;
-}
-;
+};
 
 int LinkedList::search(int target) {
   Node* curr_node = head;
@@ -91,9 +93,9 @@ void LinkedList::printList() {
   Node* curr_node = head;
   cout << '[';
   while (curr_node != nullptr) {
-    cout << curr_node->data << endl;
+    cout << curr_node->data;
     curr_node = curr_node->link;
     cout << " ";
   }
-  cout << ']';
+  cout << ']'<<endl;
 };
