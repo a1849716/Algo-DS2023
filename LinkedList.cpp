@@ -39,6 +39,7 @@ int LinkedList::listSize(){
     count++;
     curr_node = curr_node -> link;
   }
+  return count;
 }
 
 void LinkedList::insertPosition(int pos, int newNum) {
@@ -56,7 +57,7 @@ void LinkedList::insertPosition(int pos, int newNum) {
   prev_node->link = new_node;
 
   int size = listSize();
-  if (pos < listSize){
+  if (pos < size){
   Node* end_node = traverse(size);
   Node* new_end_node = new Node(newNum, nullptr);
   end_node -> link = new_end_node;
