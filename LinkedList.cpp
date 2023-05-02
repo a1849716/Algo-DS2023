@@ -33,7 +33,7 @@ LinkedList::LinkedList(int* array, int len) {
 };
 
 int LinkedList::listSize(){
-  int count;
+  int count = 1;
   Node* curr_node = head;
   while (head != nullptr){
     count++;
