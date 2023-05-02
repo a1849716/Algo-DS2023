@@ -14,7 +14,7 @@ LinkedList::~LinkedList() {
 };
 
 Node* LinkedList::traverse(int index) {
-  int position = 0;
+  int position = 1;
   Node* curr_node = head;
 
   while (curr_node != nullptr && position < index) {
@@ -53,7 +53,7 @@ bool LinkedList::deletePosition(int pos) {
 };
 
 int LinkedList::get(int pos) {
-  int position = 0;
+  int position = 1;
   Node* currNode = head;
   while (currNode != nullptr && position < pos) {
     currNode = currNode->link;
