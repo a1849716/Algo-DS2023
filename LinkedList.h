@@ -2,14 +2,14 @@
 #define LINKEDLIST_H
 #include "Node.h"
 
-class LinkedList{
+class LinkedList {
+  // declare Node as a friend class
+  friend class Node;
+
  private:
   Node* head;
 
  public:
-  //declare Node as a friend class
-  friend class Node;
-
   LinkedList();
   LinkedList(int* array, int len);
   ~LinkedList();
