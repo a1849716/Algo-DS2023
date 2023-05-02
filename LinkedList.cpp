@@ -93,7 +93,7 @@ void LinkedList::printList() {
   Node* curr_node = head;
   cout << '[';
   while (curr_node != nullptr) {
-    cout << curr_node->data;
+    cout << curr_node->data << endl;
     curr_node = curr_node->link;
     cout << " ";
   }
