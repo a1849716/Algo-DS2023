@@ -56,10 +56,10 @@ bool LinkedList::deletePosition(int pos) {
     Node* prev_node = traverse(pos-1);
     Node* after_node = traverse(pos+1);
     if (after_node == nullptr){
-      free (pos_node);
+      delete pos_node;
     } else{
       prev_node->link = after_node;
-      free(pos_node);
+      delete pos_node;
     }
     return true;
   }
@@ -96,7 +96,7 @@ void LinkedList::printList() {
   Node* curr_node = head;
   cout << '[';
   while (curr_node != nullptr) {
-    cout << curr_node->data <<" "<< endl;
+    cout << curr_node->data <<" "<<endl;
     curr_node = curr_node->link;
   }
   cout << ']';
