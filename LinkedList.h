@@ -2,7 +2,7 @@
 #define LINKEDLIST_H
 #include "Node.h"
 
-class LinkedList{
+class LinkedList {
  private:
   Node* head;
 
