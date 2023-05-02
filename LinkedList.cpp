@@ -34,8 +34,9 @@ Node* LinkedList::traverse(int index) {
 }
 
 LinkedList::LinkedList(int* array, int len) {
-  for (int i = 1; i <= len; i++) {
-    insertPosition(i, array[i - 1]);
+  head = nullptr;
+  for (int i = 0; i < len; i++) {
+    insertPosition(i+1, array[i]);
   }
 };
 
