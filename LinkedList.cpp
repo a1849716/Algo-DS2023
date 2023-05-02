@@ -41,24 +41,28 @@ LinkedList::LinkedList(int* array, int len) {
 };
 
 void LinkedList::insertPosition(int pos, int newNum) {
-    Node* new_node = new Node(newNum, nullptr);
-
-    if (head == nullptr) {  // if list is empty
-        head = new_node;
-    } else if (pos <= 1) {  // if insert at start
-        new_node->link = head;
-        head = new_node;
-    } else {
-        // if insert in the middle or end
-        Node* prev_node = head;
-        int current_pos = 1;
-        while (prev_node->link != nullptr && current_pos < pos - 1) {
-            prev_node = prev_node->link;
-            current_pos++;
-        }
-        new_node->link = prev_node->link;
-        prev_node->link = new_node;
-    }
+  // if insert at start
+  Node* new_node = new Node(newNum, nullptr);
+  if (pos <= 1 || head == nullptr) {
+    new_node->link = head;
+    head = new_node;
+  } else {
+    // if insert in the middle
+    Node* prev_node = head;
+    prev_node = traverse(pos - 1);
+    new_node->link = prev_node->link;
+    prev_node->link = new_node;
+  }
+  int count = 0;
+  Node* curr = head;
+  while(curr != nullptr){
+    count++;
+    curr = curr -> link;
+  }
+  if(pos > count){
+    Node* end_node = traverse(count);
+    end_node -> link = new_node;
+  }
 };
 
 bool LinkedList::deletePosition(int pos) {
