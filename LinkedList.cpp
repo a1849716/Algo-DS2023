@@ -53,7 +53,9 @@ bool LinkedList::deletePosition(int pos) {
   if (pos_node == nullptr) {
     return false;
   } else {
-    prev_node = pos_node->link;
+    Node* prev_node = traverse(pos - 1);
+    Node* after_node = traverse(pos + 1);
+    prev_node->link = after_node;
     delete pos_node;
     return true;
   }
