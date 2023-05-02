@@ -27,10 +27,19 @@ Node* LinkedList::traverse(int index) {
 }
 
 LinkedList::LinkedList(int* array, int len) {
-  for (int i = 1; i < len; i++) {
+  for (int i = 1; i <= len; i++) {
     insertPosition(i, array[i - 1]);
   }
 };
+
+int LinkedList::listSize(){
+  int count;
+  Node* curr_node = head;
+  while (head != nullptr){
+    count++;
+    curr_node = curr_node -> link;
+  }
+}
 
 void LinkedList::insertPosition(int pos, int newNum) {
   // if insert at start
@@ -45,6 +54,13 @@ void LinkedList::insertPosition(int pos, int newNum) {
   }
   Node* new_node = new Node(newNum, prev_node->link);
   prev_node->link = new_node;
+
+  int size = listSize();
+  if (pos < listSize){
+  Node* end_node = traverse(size);
+  Node* new_end_node = new Node(newNum, nullptr);
+  end_node -> link = new_end_node;
+  }
 };
 
 bool LinkedList::deletePosition(int pos) {
