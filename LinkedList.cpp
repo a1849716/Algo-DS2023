@@ -1,4 +1,5 @@
 #include "LinkedList.h"
+#include "Node.h"
 
 #include <iostream>
 
@@ -52,7 +53,7 @@ bool LinkedList::deletePosition(int pos) {
 };
 
 int LinkedList::get(int pos) {
-  unsigned int position = 0;
+  int position = 0;
   Node* currNode = head;
   while (currNode != nullptr && position < pos) {
     currNode = currNode->link;
@@ -71,6 +72,7 @@ int LinkedList::search(int target) {
     index++;
     curr_node = curr_node->link;
   }
+  return -1;
 };
 
 void LinkedList::printList() {
