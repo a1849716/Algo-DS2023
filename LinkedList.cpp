@@ -70,10 +70,8 @@ int LinkedList::get(int pos) {
   while (currNode != nullptr && position < pos) {
     currNode = currNode->link;
     position++;
-    if (position == pos) {
-      return currNode->data;
-    }
   }
+  return currNode->data;
 };
 
 int LinkedList::search(int target) {
