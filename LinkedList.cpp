@@ -70,8 +70,8 @@ bool LinkedList::deletePosition(int pos) {
       prev_node->link = after_node;
       delete pos_node;
     }
-    return true;
   }
+  return true;
 };
 
 int LinkedList::get(int pos) {
