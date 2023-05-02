@@ -59,15 +59,17 @@ bool LinkedList::deletePosition(int pos) {
 };
 
 int LinkedList::get(int pos) {
+  Node* pos_node = traverse(pos);
+  if (pos_node == nullptr){
+  return numeric_limits < int >::max();
+  };
   int position = 1;
   Node* currNode = head;
   while (currNode != nullptr && position < pos) {
     currNode = currNode->link;
     position++;
-    if (position = pos) {
+    if (position == pos) {
       return currNode->data;
-    } else {
-      return numeric_limits<int>::max();
     }
   }
 };
