@@ -9,15 +9,16 @@ class LinkedList{
  public:
   //declare Node as a friend class
   friend class Node;
-  
+
   LinkedList();
   LinkedList(int* array, int len);
   ~LinkedList();
+
   void insertPosition(int pos, int newNum);
   bool deletePosition(int pos);
+
   int get(int pos);
   int search(int target);
   void printList();
 };
-
 #endif

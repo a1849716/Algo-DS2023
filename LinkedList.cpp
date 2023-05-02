@@ -10,7 +10,7 @@ LinkedList::LinkedList(int* array, int len) {
 
 void LinkedList::insertPosition(int pos, int newNum) {
   //if insert at start
-  if (pos == 0) {
+  if (pos <= 1) {
     head = new Node(newNum, head);
   }
   //insert at pos
@@ -20,5 +20,17 @@ void LinkedList::insertPosition(int pos, int newNum) {
 };
 
 bool LinkedList::deletePosition(int pos){
+
+};
+
+int LinkedList::get(int pos){
+  
+};
+
+int LinkedList::search(int target){
+
+};
+
+void LinkedList::printList(){
 
 };
