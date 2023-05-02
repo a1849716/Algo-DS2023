@@ -5,6 +5,9 @@ class Node {
  private:
   int data;
   Node* link;
+
+  public:
+  Node(int date, Node* link);
 };
 
 #endif
