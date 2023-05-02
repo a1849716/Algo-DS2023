@@ -50,12 +50,15 @@ void LinkedList::insertPosition(int pos, int newNum) {
 
 bool LinkedList::deletePosition(int pos) {
   Node* pos_node = traverse(pos);
+  Node* prev_node = traverse(pos - 1);
   if (pos_node == nullptr) {
     return false;
-  } else {
-    Node* prev_node = traverse(pos - 1);
-    Node* after_node = traverse(pos + 1);
-    prev_node->link = after_node;
+  } 
+  else if(pos_node->link == nullptr){
+    prev_node -> link = nullptr;
+  }
+  else {
+    prev_node = pos_node->link;
     delete pos_node;
     return true;
   }
