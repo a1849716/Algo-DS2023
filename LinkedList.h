@@ -13,6 +13,7 @@ class LinkedList {
 
   void insertPosition(int pos, int newNum);
   bool deletePosition(int pos);
+  int listSize();
   Node* traverse(int index);
   int get(int pos);
   int search(int target);
