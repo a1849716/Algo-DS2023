@@ -36,35 +36,30 @@ Node* LinkedList::traverse(int index) {
 LinkedList::LinkedList(int* array, int len) {
   head = nullptr;
   for (int i = 0; i < len; i++) {
-    insertPosition(i+1, array[i]);
+    insertPosition(i + 1, array[i]);
   }
 };
 
 void LinkedList::insertPosition(int pos, int newNum) {
-  // if insert at start
   Node* new_node = new Node(newNum, nullptr);
-  if (pos <= 1 || head == nullptr) {
+
+  if (head == nullptr) {  // if list is empty
+    head = new_node;
+  } else if (pos <= 1) {  // if insert at start
     new_node->link = head;
     head = new_node;
   } else {
-    // if insert in the middle
+    // if insert in the middle or end
     Node* prev_node = head;
-    prev_node = traverse(pos - 1);
+    int current_pos = 1;
+    while (prev_node->link != nullptr && current_pos < pos - 1) {
+      prev_node = prev_node->link;
+      current_pos++;
+    }
     new_node->link = prev_node->link;
     prev_node->link = new_node;
   }
-  int count = 0;
-  Node* curr = head;
-  while(curr != nullptr){
-    count++;
-    curr = curr -> link;
-  }
-  if(pos > count){
-    Node* end_node = traverse(count);
-    end_node -> link = new_node;
-  }
 };
-
 bool LinkedList::deletePosition(int pos) {
   Node* pos_node = traverse(pos);
   if (pos_node == nullptr || pos < 1) {
@@ -119,9 +114,9 @@ void LinkedList::printList() {
   while (curr_node != nullptr) {
     cout << curr_node->data;
     curr_node = curr_node->link;
-    if (curr_node!=nullptr){
+    if (curr_node != nullptr) {
       cout << " ";
     }
   }
-  cout << ']'<<endl;
+  cout << ']' << endl;
 };
