@@ -6,11 +6,9 @@
 
 using namespace std;
 
-Autocomplete::Autocomplete(){
-  root = root->createNode();
-}
+Autocomplete::Autocomplete() { root = root->createNode(); }
 
-void Autocomplete::insert(string word) { insertWord(root, word);};
+void Autocomplete::insert(string word) { insertWord(root, word); };
 
 vector<string> Autocomplete::getSuggestions(string partialWord) {
   vector<string> curr_words;
@@ -25,7 +23,8 @@ vector<string> Autocomplete::getSuggestions(string partialWord) {
   return curr_words;
 };
 
-void Autocomplete::helperFunc(string partialWord, vector<string> curr_words, TrieNode* temp) {
+void Autocomplete::helperFunc(string& partialWord, vector<string>& curr_words,
+                              TrieNode* temp) {
   if (temp->isEndOfWord == true) {
     curr_words.push_back(partialWord);
   }
@@ -36,7 +35,7 @@ void Autocomplete::helperFunc(string partialWord, vector<string> curr_words, Tri
 
   for (int i = 0; i < 26; i++) {
     if (temp->children[i] != nullptr) {
-      char letter = 'a'+i;
+      char letter = 'a' + i;
       partialWord.push_back(letter);
       helperFunc(partialWord, curr_words, temp->children[i]);
       partialWord.pop_back();

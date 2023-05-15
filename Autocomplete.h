@@ -13,7 +13,7 @@ class Autocomplete : public TrieNode {
   std::vector<std::string> getSuggestions(std::string partialWord);
   // add a word to the known words
   void insert(std::string word);
-  void helperFunc(std::string partialWord, std::vector<std::string> curr_words, TrieNode* temp);
+  void helperFunc(std::string &partialWord, std::vector<std::string> &curr_words, TrieNode* temp);
 };
 
 #endif
