@@ -25,12 +25,11 @@ void TrieNode::insertWord(TrieNode *root, string word) {
   // for i to the length of key word
   for (int i = 0; i < word.length(); i++) {
     int index = word[i] - 'a';
-    //cout << "int "<< i << ": " <<word[i] << endl;
     if (!traverse->children[index]) {
       traverse->children[index] = createNode();
       traverse->children[index]->data = word[i];
-      traverse = traverse->children[index];
     }
+    traverse = traverse->children[index];
   }
   // set last node as leaf
   traverse->isEndOfWord = true;

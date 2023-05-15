@@ -6,7 +6,11 @@
 
 using namespace std;
 
-void Autocomplete::insert(string word) { insertWord(root, word); };
+Autocomplete::Autocomplete(){
+  root = root->createNode();
+}
+
+void Autocomplete::insert(string word) { insertWord(root, word);};
 
 vector<string> Autocomplete::getSuggestions(string partialWord) {
   vector<string> curr_words;
@@ -34,7 +38,6 @@ void Autocomplete::helperFunc(string partialWord, vector<string> curr_words, Tri
     if (temp->children[i] != nullptr) {
       string letter = temp->data;
       curr_words.push_back(letter);
-      helperFunc(partialWord, curr_words, temp);
     }
   }
 }

@@ -8,6 +8,7 @@ class Autocomplete : public TrieNode {
  private:
   TrieNode *root;
  public:
+  Autocomplete();
   // return the known words that start with partialWord
   std::vector<std::string> getSuggestions(std::string partialWord);
   // add a word to the known words
