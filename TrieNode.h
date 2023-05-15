@@ -2,11 +2,13 @@
 #define TRIENODE_H
 #include <string>
 
+
 class TrieNode {
+  friend class Autocomplete;
  private:
   TrieNode *children[26];
   bool isEndOfWord;
-  char data;
+  std::string data;
  public:
   TrieNode();
   TrieNode *createNode();
