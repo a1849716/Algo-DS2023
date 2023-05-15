@@ -36,8 +36,10 @@ void Autocomplete::helperFunc(string partialWord, vector<string> curr_words, Tri
 
   for (int i = 0; i < 26; i++) {
     if (temp->children[i] != nullptr) {
-      string letter = temp->data;
-      curr_words.push_back(letter);
+      char letter = 'a'+i;
+      partialWord.push_back(letter);
+      helperFunc(partialWord, curr_words, temp->children[i]);
+      partialWord.pop_back();
     }
   }
 }
