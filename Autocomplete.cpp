@@ -26,7 +26,7 @@ void Autocomplete::helperFunc(string partialWord, vector<string> curr_words, Tri
     curr_words.push_back(partialWord);
   }
 
-  if (temp = nullptr) {
+  if (temp == nullptr) {
     return;
   };
 
@@ -35,7 +35,6 @@ void Autocomplete::helperFunc(string partialWord, vector<string> curr_words, Tri
       string letter = temp->data;
       curr_words.push_back(letter);
       helperFunc(partialWord, curr_words, temp);
-      curr_words.pop_back();
     }
   }
 }
