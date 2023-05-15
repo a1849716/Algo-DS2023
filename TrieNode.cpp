@@ -1,15 +1,15 @@
-#include <iostream>
+#include "TrieNode.h"
+
 #include <string>
-#include <vector>
 using namespace std;
 
-struct trieNode {
-  struct trieNode *children[26];
+struct TrieNode {
+  struct TrieNode *children[26];
   bool isEndOfWord;
 };
 
-struct trieNode *createNode() {
-  struct trieNode *newNode = new trieNode;
+TrieNode* TrieNode::createNode() {
+  struct TrieNode *newNode = new TrieNode;
   newNode->isEndOfWord = false;
 
   for (int i = 0; i < 26; i++) {
@@ -18,17 +18,30 @@ struct trieNode *createNode() {
   return newNode;
 };
 
-void insert(trieNode *root, string key) {
-  //sets initial node as root
-  trieNode *traverse = root;
+void TrieNode::insert(TrieNode *root, string word) {
+  // sets initial node as root
+  TrieNode *traverse = root;
 
-  //for i to the length of key word
-  for (int i = 0; i < key.length(); i++) {
-    int index = key[i] - 'a';
-    if (!traverse -> children[index]){
+  // for i to the length of key word
+  for (int i = 0; i < word.length(); i++) {
+    int index = word[i] - 'a';
+    if (!traverse->children[index]) {
       traverse->children[index] = createNode();
     }
   }
-  //set last node as leaf
+  // set last node as leaf
   traverse->isEndOfWord = true;
+}
+
+bool TrieNode::search(TrieNode *root, string word) {
+  TrieNode *traverse = root;
+
+  for (int i = 0; i < word.length(); i++) {
+    int index = word[i] - 'a';
+    if (!traverse->children[index]) return false;
+
+    traverse = traverse->children[index];
+  }
+
+  return (traverse->isEndOfWord);
 }

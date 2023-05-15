@@ -1,15 +1,11 @@
 #ifndef TRIENODE_H
 #define TRIENODE_H
 #include <string>
-#include <vector>
 
-class TrieNode {
- private:
-  TrieNode *children[26];
-  bool isEndOfWord;
-
- public:
-  
+struct TrieNode {
+  TrieNode* createNode();
+  void insert(TrieNode *root, std::string word);
+  bool search(TrieNode *root, std::string word);
 };
 
 #endif
