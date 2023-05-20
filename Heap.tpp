@@ -56,7 +56,15 @@ Heap<T>::Heap(std::vector<T> start_values) {
 
 template <typename T>
 void Heap<T>::insert(T value) {
-  // TO BE IMPLEMENTED
+  // add the value to the vector
+  values.push_back(value);
+  // find the parent index
+  int curr_parent = floor((values.size() - 1) / 2);
+  // heapify
+  for (int parent_index = curr_parent; parent_index >= 0;
+       parent_index--) {
+    heapify(parent_index);
+  }
 }
 
 /*******************************/

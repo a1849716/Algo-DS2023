@@ -4,9 +4,7 @@
 
 using namespace std;
 
-template <typename T>
-
-int main() { 
-  vector<T> heap;
-  Heap h(heap);
+int main(){
+  vector<int> heap = {1,2,3,4,5,6};
+  Heap<int> h(heap);
 }
