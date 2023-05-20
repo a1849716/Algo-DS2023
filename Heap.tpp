@@ -20,6 +20,8 @@ class Heap {
   void insert(T);
   void remove(T);
   T getMin();
+
+  void print_heap();
 };
 
 /*******************************/
@@ -58,12 +60,14 @@ template <typename T>
 void Heap<T>::insert(T value) {
   // add the value to the vector
   values.push_back(value);
-  // find the parent index
-  int curr_parent = floor((values.size() - 1) / 2);
+  // find the indexes
+  int curr_pos = values.size() - 1;
+  int curr_parent = floor(curr_pos / 2);
   // heapify
-  for (int parent_index = curr_parent; parent_index >= 0;
-       parent_index--) {
-    heapify(parent_index);
+  while (curr_pos != 0 && value <= values[curr_parent]) {
+    std::swap(values[curr_pos], values[curr_parent]);
+    curr_pos = curr_parent;
+    curr_parent = floor(curr_pos / 2);
   }
 }
 
@@ -124,6 +128,13 @@ void Heap<T>::heapify(int parent_index) {
     // heapify the swapped index - it may need to move
     // further down the 'tree'
     heapify(index_of_smallest);
+  }
+}
+
+template <typename T>
+void Heap<T>::print_heap() {
+  for (int i = 0; i < values.size(); i++) {
+    std::cout << values[i] << std::endl;
   }
 }
 
