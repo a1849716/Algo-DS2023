@@ -4,7 +4,7 @@
 #include <vector>
 #include "TrieNode.h"
 
-class Autocomplete : public TrieNode {
+class Autocomplete : public TrieNode{
  private:
   TrieNode *root;
  public:
