@@ -78,7 +78,26 @@ void Heap<T>::insert(T value) {
 
 template <typename T>
 void Heap<T>::remove(T value) {
-  // TO BE IMPLEMENTED
+  //get the index of where the value is located
+  int value_index = 0;
+  for (int i = 0; i < values.size(); i++){
+    if (value == values.at(i)){
+      value_index = i;
+    }
+  }
+  
+  //swap the value with the bottom rightmost value and deleting the end value
+  int bottom_right_most_index = values.size()-1;
+  std::swap(values[value_index], values[bottom_right_most_index]);
+  values.pop_back();
+  
+  //heapify
+  int initial_parent_index = floor((values.size() - 1) / 2);
+  for (int parent_index = initial_parent_index; parent_index >= 0;
+       parent_index--) {
+    heapify(parent_index);
+  }
+  
 }
 
 /*******************************/
@@ -87,7 +106,7 @@ void Heap<T>::remove(T value) {
 
 template <typename T>
 T Heap<T>::getMin() {
-  // TO BE IMPLEMENTED
+  return values[0];
 }
 
 /*******************************/
