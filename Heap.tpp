@@ -69,6 +69,7 @@ void Heap<T>::insert(T value) {
     curr_pos = curr_parent;
     curr_parent = floor(curr_pos / 2);
   }
+  
 }
 
 /*******************************/
