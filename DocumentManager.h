@@ -13,12 +13,10 @@ struct Document {
 
 class DocumentManager {
  private:
-  std::unordered_map<int, std::pair<std::string, int>> documents_map;
-  std::unordered_map<int, std::pair<std::string, int>>::iterator it;
+  std::unordered_map<int, std::pair<std::string, int> > documents_map;
+  std::unordered_map<int, std::pair<std::string, int> >::iterator it;
   std::unordered_map<int, int> borrowed_copies;
   std::unordered_set<int> patrons;
-;
-
  public:
   void addDocument(std::string name, int id, int licence_limit);
 

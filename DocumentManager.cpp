@@ -1,9 +1,9 @@
 #include "DocumentManager.h"
 
+#include <iostream>
 #include <map>
 #include <queue>
 #include <string>
-#include <iostream>
 
 using namespace std;
 
@@ -25,16 +25,17 @@ int DocumentManager::search(string name) {
 };
 
 bool DocumentManager::borrowDocument(int docid, int patronID) {
+  it = documents_map.begin();
   // if either document or patron didnt exist
   if (documents_map.find(docid) == documents_map.end() ||
       patrons.find(patronID) == patrons.end()) {
     return 0;
   }
-
   // if maxed out borrow
-  if (it->second.second <= borrowed_copies[docid]) {
+  if (it->second.second <= borrowed_copies.at(docid)) {
     return 0;
   }
+
   // else borrow document
   borrowed_copies.at(docid)++;
   return 1;
