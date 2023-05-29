@@ -1,18 +1,24 @@
 #ifndef DOCUMENTMANAGER_H
 #define DOCUMENTMANAGER_H
-#include <map>
+#include <unordered_map>
 #include <string>
-#include <vector>
+#include <unordered_set>
+
+struct Document{
+    std::string name;
+    int license_limit;
+    int id;
+    int borrowed_amount;
+  }
 
 class DocumentManager {
  private:
-  std::map<std::string, int> documentMap;
-  std::vector<int> patrons;
+  std::unordered_map<std::string, int> documents_map;
+  std::unordered_map<int, int> borrowedCopies;
+  std::unordered_set<int> patrons;
   
-
-
  public:
-  void addDocument(std::string name, int id, int borrowLimit);
+  void addDocument(std::string name, int id, int licence_limit);
 
   void addPatron(int patronID);
 
