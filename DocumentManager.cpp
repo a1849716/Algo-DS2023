@@ -18,7 +18,7 @@ void DocumentManager::addPatron(int patronID) { patrons.insert(patronID); };
 // in the collection
 int DocumentManager::search(string name) {
   it = documents_map.begin();
-  if (it->second.first == name) {
+  if ((it->second).first == name) {
     return it->first;
   }
   return 0;
@@ -32,12 +32,13 @@ bool DocumentManager::borrowDocument(int docid, int patronID) {
     return 0;
   }
   // if maxed out borrow
-  if (it->second.second <= borrowed_copies.at(docid)) {
+  if ((it->second).second <= borrowed_copies.at(docid)) {
     return 0;
   }
 
   // else borrow document
   borrowed_copies.at(docid)++;
+  cout <<"borrowed_copies: "<< borrowed_copies.at(docid) << endl;
   return 1;
 };
 
@@ -48,7 +49,15 @@ void DocumentManager::returnDocument(int docid, int patronID) {
     cout << "Could not find document or patron" << '\n';
   }
 
-  if (borrowed_copies.at(docid) > 0 && borrowed_copies[docid] == docid) {
+  if (borrowed_copies.at(docid) > 0) {
     borrowed_copies.at(docid)--;
   }
+  cout <<"borrowed_copies: "<< borrowed_copies.at(docid) << endl;
+};
+
+void DocumentManager::printDocument(int docid) {
+  it = documents_map.begin();
+  cout << "Key is: " << it->first
+            << " and corressponding pair: " << (it->second).first << ", "
+            << (it->second).second << endl;
 };

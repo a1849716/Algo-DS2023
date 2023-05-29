@@ -17,6 +17,7 @@ class DocumentManager {
   std::unordered_map<int, std::pair<std::string, int> >::iterator it;
   std::unordered_map<int, int> borrowed_copies;
   std::unordered_set<int> patrons;
+
  public:
   void addDocument(std::string name, int id, int licence_limit);
 
@@ -32,6 +33,8 @@ class DocumentManager {
   bool borrowDocument(int docid, int patronID);
 
   void returnDocument(int docid, int patronID);
+
+  void printDocument(int docid);
 };
 
 #endif
