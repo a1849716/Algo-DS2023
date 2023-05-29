@@ -4,13 +4,6 @@
 #include <unordered_map>
 #include <unordered_set>
 
-struct Document {
-  std::string name;
-  int licence_limit;
-  int id;
-  int amount_borrowed;
-};
-
 class DocumentManager {
  private:
   std::unordered_map<int, std::pair<std::string, int> > documents_map;
