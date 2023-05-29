@@ -17,15 +17,16 @@ void DocumentManager::addPatron(int patronID) { patrons.insert(patronID); };
 // returns docid if name is in the document collection or 0 if the name is not
 // in the collection
 int DocumentManager::search(string name) {
-  it = documents_map.begin();
-  if ((it->second).first == name) {
-    return it->first;
+  for (auto it = documents_map.begin(); it != documents_map.end(); ++it) {
+    if ((it->second).first == name) {
+      return it->first;
+    }
   }
   return 0;
 };
 
 bool DocumentManager::borrowDocument(int docid, int patronID) {
-  it = documents_map.begin();
+  it = documents_map.find(docid);
   // if either document or patron didnt exist
   if (documents_map.find(docid) == documents_map.end() ||
       patrons.find(patronID) == patrons.end()) {
@@ -38,7 +39,7 @@ bool DocumentManager::borrowDocument(int docid, int patronID) {
 
   // else borrow document
   borrowed_copies.at(docid)++;
-  //cout <<"borrowed_copies: "<< borrowed_copies.at(docid) << endl;
+  // cout <<"borrowed_copies: "<< borrowed_copies.at(docid) << endl;
   return 1;
 };
 
@@ -46,18 +47,18 @@ void DocumentManager::returnDocument(int docid, int patronID) {
   // if either document or patron didnt exist
   if (documents_map.find(docid) == documents_map.end() ||
       patrons.find(patronID) == patrons.end()) {
-    //cout << "Could not find document or patron" << '\n';
+    cout << "Could not find document or patron" << '\n';
   }
 
   if (borrowed_copies.at(docid) > 0) {
     borrowed_copies.at(docid)--;
   }
-  //cout <<"borrowed_copies: "<< borrowed_copies.at(docid) << endl;
+  cout << borrowed_copies.at(docid) << endl;
 };
 
 void DocumentManager::printDocument(int docid) {
-  it = documents_map.begin();
+  it = documents_map.find(docid);
   cout << "Key is: " << it->first
-            << " and corressponding pair: " << (it->second).first << ", "
-            << (it->second).second << endl;
+       << " and corressponding pair: " << (it->second).first << ", "
+       << (it->second).second << endl;
 };
