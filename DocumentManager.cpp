@@ -38,7 +38,7 @@ bool DocumentManager::borrowDocument(int docid, int patronID) {
 
   // else borrow document
   borrowed_copies.at(docid)++;
-  cout <<"borrowed_copies: "<< borrowed_copies.at(docid) << endl;
+  //cout <<"borrowed_copies: "<< borrowed_copies.at(docid) << endl;
   return 1;
 };
 
@@ -46,13 +46,13 @@ void DocumentManager::returnDocument(int docid, int patronID) {
   // if either document or patron didnt exist
   if (documents_map.find(docid) == documents_map.end() ||
       patrons.find(patronID) == patrons.end()) {
-    cout << "Could not find document or patron" << '\n';
+    //cout << "Could not find document or patron" << '\n';
   }
 
   if (borrowed_copies.at(docid) > 0) {
     borrowed_copies.at(docid)--;
   }
-  cout <<"borrowed_copies: "<< borrowed_copies.at(docid) << endl;
+  //cout <<"borrowed_copies: "<< borrowed_copies.at(docid) << endl;
 };
 
 void DocumentManager::printDocument(int docid) {
