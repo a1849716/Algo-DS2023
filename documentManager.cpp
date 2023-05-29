@@ -1,4 +1,4 @@
-#include "documentManager.h"
+#include "DocumentManager.h"
 
 #include <map>
 #include <queue>
@@ -6,17 +6,17 @@
 
 using namespace std;
 
-void documentManager::addDocument(string name, int id, int borrowLimit) {
+void DocumentManager::addDocument(string name, int id, int borrowLimit) {
   documentMap.insert(pair<string, int>(name, id));
 };
 
-void documentManager::addPatron(int patronID){
+void DocumentManager::addPatron(int patronID){
   patrons.push_back(patronID);
 };
 
 // returns docid if name is in the document collection or 0 if the name is not
   // in the collection
-int documentManager::search(std::string name){
+int DocumentManager::search(std::string name){
   if (documentMap[name] != NULL){
     return documentMap[name];
   } else{
@@ -25,7 +25,7 @@ int documentManager::search(std::string name){
 };
 
 bool borrowDocument(int docid, int patronID){
-  
+
 }
 
 

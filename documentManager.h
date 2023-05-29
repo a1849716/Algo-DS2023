@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-class documentManager {
+class DocumentManager {
  private:
   std::map<std::string, int> documentMap;
   std::vector<int> patrons;
